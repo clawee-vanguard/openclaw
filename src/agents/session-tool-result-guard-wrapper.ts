@@ -67,6 +67,11 @@ export function guardSessionManager(
     : undefined;
 
   const guard = installSessionToolResultGuard(sessionManager, {
+    // Note: This callback runs for ALL message roles (user, assistant, system,
+    // toolResult). For toolResult messages, `tool_result_persist` also fires
+    // separately via transformToolResultForPersistence. Plugin authors who
+    // register both hooks should guard against double-processing (e.g. check
+    // if content is already encrypted before encrypting again).
     transformMessageForPersistence: (message) => {
       let msg = applyInputProvenanceToUserMessage(message, opts?.inputProvenance);
       if (messagePersistTransform) {
