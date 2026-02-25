@@ -1,0 +1,57 @@
+{
+  "id": "vault",
+  "name": "OpenClaw Vault",
+  "description": "Encrypt all agent data at rest",
+  "kind": "security",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "keychainService": {
+        "type": "string",
+        "default": "openclaw-vault"
+      },
+      "autoMigrate": {
+        "type": "boolean",
+        "default": false
+      },
+      "keyRotationDays": {
+        "type": "integer",
+        "minimum": 1,
+        "default": 365
+      },
+      "dbPath": {
+        "type": "string"
+      },
+      "preventPlaintextStorage": {
+        "type": "boolean",
+        "default": false
+      }
+    }
+  },
+  "uiHints": {
+    "keychainService": {
+      "label": "Keychain Service",
+      "help": "Name of the keychain service for storing the master key",
+      "advanced": true
+    },
+    "autoMigrate": {
+      "label": "Auto Migrate",
+      "help": "Automatically migrate existing plaintext files to encrypted storage on startup"
+    },
+    "keyRotationDays": {
+      "label": "Key Rotation (Days)",
+      "help": "Number of days before keys should be rotated",
+      "advanced": true
+    },
+    "dbPath": {
+      "label": "Database Path",  
+      "help": "Path to store the Key Management database (defaults to ~/.openclaw/vault/)",
+      "advanced": true
+    },
+    "preventPlaintextStorage": {
+      "label": "Prevent Plaintext Storage",
+      "help": "When enabled, prevents storing messages and files in plaintext (encrypted only)"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "@openclaw/vault",
+  "version": "1.0.0",
+  "description": "OpenClaw Vault plugin for encrypting agent data at rest",
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.3"
+  }
+}
