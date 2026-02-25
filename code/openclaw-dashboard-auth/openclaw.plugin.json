@@ -1,0 +1,49 @@
+{
+  "id": "openclaw-dashboard-auth",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "default": true
+      },
+      "passwordHash": {
+        "type": "string",
+        "description": "bcrypt hash of the dashboard password",
+        "default": ""
+      },
+      "sessionTimeout": {
+        "type": "integer",
+        "default": 900,
+        "minimum": 60,
+        "description": "Session timeout in seconds (default: 15 minutes)"
+      },
+      "cookieName": {
+        "type": "string",
+        "default": "openclaw_auth",
+        "description": "Name of the authentication cookie"
+      }
+    }
+  },
+  "uiHints": {
+    "enabled": {
+      "label": "Enable Dashboard Authentication",
+      "help": "When enabled, requires password authentication to access the dashboard"
+    },
+    "passwordHash": {
+      "label": "Password Hash (bcrypt)",
+      "sensitive": true,
+      "help": "Use 'openclaw dashboard-auth hash-password' to generate this value"
+    },
+    "sessionTimeout": {
+      "label": "Session Timeout (seconds)",
+      "help": "How long before inactive sessions expire (default: 900 = 15 minutes)"
+    },
+    "cookieName": {
+      "label": "Cookie Name",
+      "advanced": true,
+      "help": "Name of the session cookie (default: openclaw_auth)"
+    }
+  }
+}

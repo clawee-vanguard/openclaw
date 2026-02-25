@@ -1,0 +1,17 @@
+{
+  "name": "openclaw-dashboard-auth",
+  "version": "1.0.0",
+  "description": "Password authentication plugin for OpenClaw dashboard",
+  "main": "index.ts",
+  "type": "module",
+  "openclaw": {
+    "extensions": ["./index.ts"]
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/node": "^20.0.0"
+  }
+}
